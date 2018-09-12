@@ -3,12 +3,11 @@
 
 typedef struct _AVL_NODE {
 	int val;
+	int height;
 	struct _AVL_NODE *parent;
 	struct _AVL_NODE *left;
 	struct _AVL_NODE *right;
-	int height;
 } AVL_NODE, *PAVL_NODE;
-
 
 PAVL_NODE root = NULL;
 
@@ -121,8 +120,7 @@ BOOL search_then_insert(PAVL_NODE node) {
 				node->parent = n;
 				return TRUE;
 			}
-		}
-		else if (n->val < node->val) {
+		} else if (n->val < node->val) {
 			if (n->right != NULL) {
 				n = n->right;
 			} else {
